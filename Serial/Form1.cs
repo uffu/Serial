@@ -87,7 +87,6 @@ namespace Serial
 
 
 
-        private byte[] buffer = new byte[256];
         private char NewLine = ' ';
         private void Serial_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
@@ -95,7 +94,8 @@ namespace Serial
             {
                 while (serial.BytesToRead > 0)
                 {
-                    int count = serial.Read(buffer, 0, 256);
+                    byte[] buffer = new byte[256];
+                    int count = serial.Read(buffer, 0, buffer.Length);
 
                     string ascii = "";
                     string hex = "";
@@ -106,7 +106,7 @@ namespace Serial
                         if (c == NewLine)
                             hex += "\r\n";
                         ascii += c.ToString();
-                    }
+                    }                    
                     textBox_recv_hex.AppendText(hex);
                     textBox_recv_ascii.AppendText(ascii);
                 }
@@ -130,6 +130,12 @@ namespace Serial
                 NewLine = '\n';
             else if (radioButton_r.Checked)
                 NewLine = '\r';
+        }
+
+        private void button_clear_Click(object sender, EventArgs e)
+        {
+            textBox_recv_hex.Clear();
+            textBox_recv_ascii.Clear();
         }
     }
 }

@@ -43,6 +43,7 @@
             this.radioButton_n = new System.Windows.Forms.RadioButton();
             this.radioButton_r = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_clear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@
             this.comboBox_baud.Items.AddRange(new object[] {
             "115200",
             "9600"});
-            this.comboBox_baud.Location = new System.Drawing.Point(5, 66);
+            this.comboBox_baud.Location = new System.Drawing.Point(5, 58);
             this.comboBox_baud.Name = "comboBox_baud";
             this.comboBox_baud.Size = new System.Drawing.Size(73, 59);
             this.comboBox_baud.TabIndex = 1;
@@ -81,7 +82,7 @@
             // button_conn
             // 
             this.button_conn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_conn.Location = new System.Drawing.Point(5, 131);
+            this.button_conn.Location = new System.Drawing.Point(5, 123);
             this.button_conn.Name = "button_conn";
             this.button_conn.Size = new System.Drawing.Size(73, 48);
             this.button_conn.TabIndex = 4;
@@ -205,11 +206,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New Line";
             // 
+            // button_clear
+            // 
+            this.button_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_clear.Location = new System.Drawing.Point(5, 185);
+            this.button_clear.Name = "button_clear";
+            this.button_clear.Size = new System.Drawing.Size(73, 28);
+            this.button_clear.TabIndex = 18;
+            this.button_clear.Text = "Clear";
+            this.button_clear.UseVisualStyleBackColor = true;
+            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 689);
+            this.Controls.Add(this.button_clear);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -251,6 +264,7 @@
         private System.Windows.Forms.RadioButton radioButton_n;
         private System.Windows.Forms.RadioButton radioButton_r;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button_clear;
     }
 }
 

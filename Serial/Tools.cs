@@ -8,23 +8,20 @@ namespace Serial
     {
         public static string toAscii(string hex)
         {
-            try
+            string ascii = string.Empty;
+            for (int i = 0; i < hex.Length; i += 2)
             {
-                string ascii = string.Empty;
-                for (int i = 0; i < hex.Length; i += 2)
+                string hs = string.Empty;
+                try
                 {
-                    string hs = string.Empty;
-
                     hs = hex.Substring(i, 2);
                     uint decval = Convert.ToUInt32(hs, 16);
                     char character = Convert.ToChar(decval);
                     ascii += character;
                 }
-                return ascii;
+                catch { }
             }
-            catch { }
-
-            return string.Empty;
+            return ascii;            
         }
 
         public static string toHex(string ascii)
