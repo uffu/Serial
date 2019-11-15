@@ -40,6 +40,10 @@
             this.button_send = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.radioButton_n = new System.Windows.Forms.RadioButton();
+            this.radioButton_r = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox_ports
@@ -166,11 +170,47 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "hex";
             // 
+            // radioButton_n
+            // 
+            this.radioButton_n.AutoSize = true;
+            this.radioButton_n.Location = new System.Drawing.Point(6, 19);
+            this.radioButton_n.Name = "radioButton_n";
+            this.radioButton_n.Size = new System.Drawing.Size(69, 17);
+            this.radioButton_n.TabIndex = 14;
+            this.radioButton_n.TabStop = true;
+            this.radioButton_n.Text = "\\n (0x0A)";
+            this.radioButton_n.UseVisualStyleBackColor = true;
+            this.radioButton_n.CheckedChanged += new System.EventHandler(this.radioButton_newline_CheckedChanged);
+            // 
+            // radioButton_r
+            // 
+            this.radioButton_r.AutoSize = true;
+            this.radioButton_r.Location = new System.Drawing.Point(6, 43);
+            this.radioButton_r.Name = "radioButton_r";
+            this.radioButton_r.Size = new System.Drawing.Size(67, 17);
+            this.radioButton_r.TabIndex = 15;
+            this.radioButton_r.TabStop = true;
+            this.radioButton_r.Text = "\\r (0x0D)";
+            this.radioButton_r.UseVisualStyleBackColor = true;
+            this.radioButton_r.CheckedChanged += new System.EventHandler(this.radioButton_newline_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton_n);
+            this.groupBox1.Controls.Add(this.radioButton_r);
+            this.groupBox1.Location = new System.Drawing.Point(5, 280);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(78, 71);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "New Line";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 689);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button_send);
@@ -188,6 +228,8 @@
             this.Name = "MainForm";
             this.Text = "Serial";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,6 +248,9 @@
         private System.Windows.Forms.Button button_send;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton radioButton_n;
+        private System.Windows.Forms.RadioButton radioButton_r;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

@@ -12,15 +12,22 @@ namespace Serial
         {
             InitializeComponent();
 
-            comboBox_ports.Items.Clear();
-            comboBox_ports.Items.AddRange(SerialPort.GetPortNames());
-            if(comboBox_ports.Items.Count > 0)
-                comboBox_ports.SelectedIndex = 0;
-
             serial.DataReceived += Serial_DataReceived;
             serial.ErrorReceived += Serial_ErrorReceived;
 
             CheckForIllegalCrossThreadCalls = false;
+
+            initGui();
+        }
+
+        private void initGui()
+        {
+            comboBox_ports.Items.Clear();
+            comboBox_ports.Items.AddRange(SerialPort.GetPortNames());
+            if (comboBox_ports.Items.Count > 0)
+                comboBox_ports.SelectedIndex = 0;
+
+            radioButton_r.Checked = true;
         }
 
         private void Serial_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
@@ -81,6 +88,7 @@ namespace Serial
 
 
         private byte[] buffer = new byte[256];
+        private char NewLine = ' ';
         private void Serial_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             try
@@ -95,7 +103,7 @@ namespace Serial
                     {
                         char c = Convert.ToChar(buffer[i]);
                         hex += " " + buffer[i].ToString("X2");
-                        if (c == '\n')
+                        if (c == NewLine)
                             hex += "\r\n";
                         ascii += c.ToString();
                     }
@@ -114,6 +122,14 @@ namespace Serial
                 s.Add((byte)Convert.ToUInt32(hex.Substring(i, 2), 16));
             
             serial.Write(s.ToArray(), 0, s.Count);
+        }
+
+        private void radioButton_newline_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton_n.Checked)
+                NewLine = '\n';
+            else if (radioButton_r.Checked)
+                NewLine = '\r';
         }
     }
 }
