@@ -6,6 +6,14 @@ namespace Serial
 {
     class Tools
     {
+        public static char toChar(uint dec)
+        {
+            const uint TAB = 9, LF = 10, CR = 13;
+            if ( (dec >= 32 && dec < 127) || dec == TAB || dec == LF || dec == CR) 
+                return Convert.ToChar(dec);
+            else
+                return '?';
+        }
         public static string toAscii(string hex)
         {
             string ascii = string.Empty;
@@ -15,9 +23,9 @@ namespace Serial
                 try
                 {
                     hs = hex.Substring(i, 2);
-                    uint decval = Convert.ToUInt32(hs, 16);
-                    char character = Convert.ToChar(decval);
-                    ascii += character;
+                    uint dec = Convert.ToUInt32(hs, 16);
+                    ascii += toChar(dec);
+                    // TODO fix chars
                 }
                 catch { }
             }

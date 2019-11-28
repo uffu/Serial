@@ -72,20 +72,7 @@ namespace Serial
                 serial.Close();            
         }
 
-        private void textBox_send_ascii_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            textBox_send_hex.Text = Tools.toHex(textBox_send_ascii.Text);
-        }
-
-        private void textBox_send_hex_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            textBox_send_ascii.Text = Tools.toAscii(textBox_send_hex.Text);
-        }
-
-
-
-
-
+        
 
         private char NewLine = ' ';
         private void Serial_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -97,16 +84,15 @@ namespace Serial
                     byte[] buffer = new byte[256];
                     int count = serial.Read(buffer, 0, buffer.Length);
 
-                    string ascii = "";
                     string hex = "";
+                    string ascii = "";
                     for (int i = 0; i < count; i++)
                     {
-                        char c = Convert.ToChar(buffer[i]);
                         hex += " " + buffer[i].ToString("X2");
-                        if (c == NewLine)
+                        if (buffer[i] == NewLine)
                             hex += "\r\n";
-                        ascii += c.ToString();
-                    }                    
+                        ascii += Tools.toChar(buffer[i]);
+                    }
                     textBox_recv_hex.AppendText(hex);
                     textBox_recv_ascii.AppendText(ascii);
                 }
@@ -136,6 +122,20 @@ namespace Serial
         {
             textBox_recv_hex.Clear();
             textBox_recv_ascii.Clear();
+        }
+
+        private void textBox_send_hex_TextChanged(object sender, EventArgs e)
+        {
+            textBox_send_ascii.TextChanged -= textBox_send_ascii_TextChanged;
+            textBox_send_ascii.Text = Tools.toAscii(textBox_send_hex.Text);
+            textBox_send_ascii.TextChanged += textBox_send_ascii_TextChanged;
+        }
+
+        private void textBox_send_ascii_TextChanged(object sender, EventArgs e)
+        {
+            textBox_send_hex.TextChanged -= textBox_send_hex_TextChanged;
+            textBox_send_hex.Text = Tools.toHex(textBox_send_ascii.Text);
+            textBox_send_hex.TextChanged += textBox_send_hex_TextChanged;
         }
     }
 }

@@ -100,7 +100,7 @@
             this.textBox_send_ascii.Name = "textBox_send_ascii";
             this.textBox_send_ascii.Size = new System.Drawing.Size(446, 117);
             this.textBox_send_ascii.TabIndex = 6;
-            this.textBox_send_ascii.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_send_ascii_KeyPress);
+            this.textBox_send_ascii.TextChanged += new System.EventHandler(this.textBox_send_ascii_TextChanged);
             // 
             // textBox_send_hex
             // 
@@ -111,7 +111,7 @@
             this.textBox_send_hex.Name = "textBox_send_hex";
             this.textBox_send_hex.Size = new System.Drawing.Size(446, 117);
             this.textBox_send_hex.TabIndex = 7;
-            this.textBox_send_hex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_send_hex_KeyPress);
+            this.textBox_send_hex.TextChanged += new System.EventHandler(this.textBox_send_hex_TextChanged);
             // 
             // textBox_recv_ascii
             // 
