@@ -28,6 +28,50 @@ namespace Serial
                 comboBox_ports.SelectedIndex = 0;
 
             radioButton_r.Checked = true;
+
+            // Single bar to avoid short-circuit
+            if (load_buttons("ascii.txt", groupBox_ascii, ascii_button_Click) | load_buttons("hex.txt", groupBox_hex, hex_button_Click))
+                Height += 150;
+        }
+
+        private bool load_buttons(string file, GroupBox gb, EventHandler click)
+        {
+            if (System.IO.File.Exists(file))
+            {
+                FlowLayoutPanel f = new FlowLayoutPanel();
+                f.WrapContents = true;
+                f.AutoScroll = true;
+                f.FlowDirection = FlowDirection.LeftToRight;
+                f.Dock = DockStyle.Fill;
+                gb.Controls.Add(f);
+                gb.Visible = true;
+                try
+                {
+                    foreach (string line in System.IO.File.ReadAllLines(file))
+                    {
+                        Button b = new Button();
+                        b.Text = line;
+                        b.Click += click;
+                        f.Controls.Add(b);
+                    }
+                }
+                catch { }
+                return true;
+            }
+            else
+                return false;
+        }
+        private void hex_button_Click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            textBox_send_hex.Text = b.Text.Split(' ')[1];
+            button_send.PerformClick();
+        }
+        private void ascii_button_Click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            textBox_send_ascii.Text = b.Text.Split(' ')[1];
+            button_send.PerformClick();
         }
 
         private void Serial_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)

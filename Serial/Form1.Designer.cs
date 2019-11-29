@@ -44,6 +44,8 @@
             this.radioButton_r = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_clear = new System.Windows.Forms.Button();
+            this.groupBox_hex = new System.Windows.Forms.GroupBox();
+            this.groupBox_ascii = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,7 +94,7 @@
             // 
             // textBox_send_ascii
             // 
-            this.textBox_send_ascii.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox_send_ascii.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_send_ascii.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_send_ascii.Location = new System.Drawing.Point(89, 560);
@@ -104,7 +106,8 @@
             // 
             // textBox_send_hex
             // 
-            this.textBox_send_hex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_send_hex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_send_hex.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_send_hex.Location = new System.Drawing.Point(541, 560);
             this.textBox_send_hex.Multiline = true;
@@ -128,7 +131,8 @@
             // 
             // textBox_recv_hex
             // 
-            this.textBox_recv_hex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_recv_hex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_recv_hex.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_recv_hex.Location = new System.Drawing.Point(89, 280);
             this.textBox_recv_hex.Multiline = true;
@@ -140,7 +144,8 @@
             // 
             // button_send
             // 
-            this.button_send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_send.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.button_send.Enabled = false;
             this.button_send.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_send.Location = new System.Drawing.Point(5, 560);
@@ -153,7 +158,8 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(86, 545);
             this.label2.Name = "label2";
@@ -163,7 +169,8 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(538, 545);
             this.label3.Name = "label3";
@@ -217,11 +224,39 @@
             this.button_clear.UseVisualStyleBackColor = true;
             this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
             // 
+            // groupBox_hex
+            // 
+            this.groupBox_hex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_hex.Location = new System.Drawing.Point(541, 683);
+            this.groupBox_hex.Name = "groupBox_hex";
+            this.groupBox_hex.Size = new System.Drawing.Size(446, 1);
+            this.groupBox_hex.TabIndex = 19;
+            this.groupBox_hex.TabStop = false;
+            this.groupBox_hex.Text = "hex";
+            this.groupBox_hex.Visible = false;
+            // 
+            // groupBox_ascii
+            // 
+            this.groupBox_ascii.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_ascii.Location = new System.Drawing.Point(89, 683);
+            this.groupBox_ascii.Name = "groupBox_ascii";
+            this.groupBox_ascii.Size = new System.Drawing.Size(446, 1);
+            this.groupBox_ascii.TabIndex = 20;
+            this.groupBox_ascii.TabStop = false;
+            this.groupBox_ascii.Text = "hex";
+            this.groupBox_ascii.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 689);
+            this.Controls.Add(this.groupBox_ascii);
+            this.Controls.Add(this.groupBox_hex);
             this.Controls.Add(this.button_clear);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
@@ -265,6 +300,8 @@
         private System.Windows.Forms.RadioButton radioButton_r;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_clear;
+        private System.Windows.Forms.GroupBox groupBox_hex;
+        private System.Windows.Forms.GroupBox groupBox_ascii;
     }
 }
 
